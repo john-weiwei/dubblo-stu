@@ -1,0 +1,11 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: dubbo-consumer
+
+zookeeper:
+  url: zookeeper://127.0.0.1:2181
+dubbo:
+  name: dubbo-consumer
+  port: 20880
