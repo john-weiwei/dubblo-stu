@@ -3,6 +3,8 @@ package com.cn.allen.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author:ZhangWeiWei
@@ -15,4 +17,8 @@ public class OrderEntity implements Serializable {
     private long money;
     private String userId;
     private int status = 0;
+    private List<ProductEntity> productEntityList = new ArrayList<>();
+    public void addProduct(ProductEntity productEntity){
+        productEntityList.add(productEntity);
+    }
 }

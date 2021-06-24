@@ -16,7 +16,7 @@ public class OrderServiceImpl implements OrderService {
         System.out.println(super.getClass().getName()+"被调用一次："+System.currentTimeMillis());
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setId("O0001");
-        orderEntity.setMoney(1000);
+        orderEntity.setMoney(2000);
         orderEntity.setUserId("U0001");
         return orderEntity;
     }

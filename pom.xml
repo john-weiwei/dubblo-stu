@@ -13,6 +13,8 @@
         <module>dubbo-rpc-provider</module>
         <module>dubbo-rpc-consumer</module>
         <module>dubbo-xml-server-client</module>
+        <module>dubbo-mvc</module>
+        <module>dubbo-mall</module>
     </modules>
 
     <properties>

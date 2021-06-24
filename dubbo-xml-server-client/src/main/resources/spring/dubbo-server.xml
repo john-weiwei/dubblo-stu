@@ -10,7 +10,7 @@
 <!--  使用本地zookeeper作为注册中心  -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
 <!--  name 表示使用寿什么协议监听端口：dubbo/rmi/rest  -->
-    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:protocol name="dubbo" port="20882"/>
 <!--  配置bean，交给spring去管理实例  -->
     <bean id="orderService" class="com.cn.allen.service.OrderServiceImpl"/>
 <!--  声明服务暴露的接口，并暴露服务  -->
