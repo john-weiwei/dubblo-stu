@@ -2,6 +2,7 @@ package com.cn.allen.dubbo.annotation;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
+import com.alibaba.dubbo.config.ProviderConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -26,6 +27,14 @@ public class Provider {
     @Configuration
     @EnableDubbo(scanBasePackages = "com.cn.allen.service")
     static class ProviderConfiguration{
+
+//        @Bean
+//        public ProviderConfig providerConfig() {
+//            ProviderConfig providerConfig = new ProviderConfig();
+//            providerConfig.setTimeout(3000);
+////            providerConfig.setDelay(1);
+//            return providerConfig;
+//        }
 
         @Bean
         public ApplicationConfig applicationConfig() {

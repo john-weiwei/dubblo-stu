@@ -1,0 +1,21 @@
+
+服务的暴露
+1、扫描@EnableDubbo注解下的路径，收集@Service注解的bean注册到Spring容器
+2、执行DubboComponentScanRegistrar -> registerServiceAnnotationBeanPostProcessor()方法
+注册ServiceAnnotationBeanPostProcessor实例到spring容器中
+3、调用ServiceAnnotationBeanPostProcessor -> postProcessBeanDefinitionRegistry方法，注册指定路径下的ServiceBean到Spring容器
+    3.1、执行registerServiceBeans方法，首先扫描注册由@Service注解的bean，然后获取路径下有@Service注解的BeanDefinitionHolder，遍历这个集合，
+    调用registerServiceBean方法注册ServiceBean
+    3.2、执行调用ServiceAnnotationBeanPostProcessor -> buildServiceBeanDefinition方法构建BeanDefinition，包括ref属性、
+    interface、provider、application、registries、protocols等
+4、在bean的实例化阶段，在ServiceBean的afterPropertiesSet()方法中执行export()完成服务的暴露
+    4.1、调用到父类ServiceConfig -> doExport()方法暴露服务，获取application、module、registries、monitor、protocol等信息，
+    4.2、执行doExportUrls()方法暴露服务地址（默认使用dubbo协议）到注册中心，loadRegistries()方法加载所有的注册中心
+    4.3、调用doExportUrlsFor1Protocol()方法，根据配置信息在服务的url上追加参数，
+    4.4、获取服务实例的代理实例invoker，把代理实例invoker和ServiceBean包装成DelegateProviderMetaDataInvoker，
+    最终是Protocol -> export()方法把服务的代理包装类实例暴露到注册中心
+
+服务消费
+1、
+
+
